@@ -1,2 +1,3 @@
 # ruby-linked-lists
-ruby Linked List
+This will create a Linked List in Ruby, as per the Odin Project curriculum design sheet
+
