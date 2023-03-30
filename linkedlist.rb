@@ -17,7 +17,7 @@ class LinkedList
                 current = current.next_node
             end
             current.next_node = Node.new(value)
-            @tail = current
+            @tail = current.next_node
         end 
     end
 
@@ -61,19 +61,47 @@ class LinkedList
     end
 
     def pop
-
+        current = @head
+        while current.next_node != @tail
+            current = current.next_node
+        end 
+        current.next_node = nil
+        @tail = current
     end
 
     def contains?(value)
-
+        current = @head
+        while current.next_node != nil
+            current = current.next_node
+            if current.value == value
+                return true
+            end
+        end
+        return false
     end
 
     def find(value)
-
+        current = @head
+        i = 0
+        while current.next_node != nil
+            current = current.next_node
+            i += 1
+            if current.value == value
+                return i
+            end 
+        end
+        return nil
     end
 
     def to_s
-
+        current = @head
+        string = '( ' + current.value.to_s + ' ) '
+        while current.next_node != nil
+            current = current.next_node
+            string = string + '( ' + current.value.to_s + ' ) '
+        end
+        string += 'nil'
+        string
     end
 
 end
